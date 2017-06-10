@@ -15,13 +15,13 @@ public class CustomerDAO {
 	public static void createCustomer(Customer c) throws SQLException {
 		Connection conn = DBHelper.createConnection();
 
-		String inserString = "INSERT INTO customers(first_name, last_name, email, adress, city, district, country) VALUES (?,?,?,?,?,?,?);";
+		String inserString = "INSERT INTO customers(first_name, last_name, email, address, city, district, country) VALUES (?,?,?,?,?,?,?);";
 
 		PreparedStatement stmt = conn.prepareStatement(inserString);
 		stmt.setString(1, c.getFirstName());
 		stmt.setString(2, c.getLastName());
 		stmt.setString(3, c.getEmail());
-		stmt.setString(4, c.getAdress());
+		stmt.setString(4, c.getAddress());
 		stmt.setString(5, c.getCity());
 		stmt.setString(6, c.getDistrict());
 		stmt.setString(7, c.getCountry());
@@ -31,9 +31,9 @@ public class CustomerDAO {
 		DBHelper.closeConnection(conn);
 	}
 
-	public static void createCustomer(String firstName, String lastName, String email, String adress, String city,
+	public static void createCustomer(String firstName, String lastName, String email, String address, String city,
 			String district, String country) throws SQLException {
-		Customer c = new Customer(-1, firstName, lastName, email, adress, city, district, country);
+		Customer c = new Customer(-1, firstName, lastName, email, address, city, district, country);
 		CustomerDAO.createCustomer(c);
 	}
 
@@ -52,13 +52,36 @@ public class CustomerDAO {
 			String firstName = rs.getString("first_name");
 			String lastName = rs.getString("last_name");
 			String email = rs.getString("email");
-			String adress = rs.getString("adress");
+			String address = rs.getString("address");
 			String city = rs.getString("city");
 			String district = rs.getString("district");
 			String country = rs.getString("country");
 
-			Customer c = new Customer(id, firstName, lastName, email, adress, city, district, country);
+			Customer c = new Customer(id, firstName, lastName, email, address, city, district, country);
 			result.add(c);
+		}
+		DBHelper.closeConnection(conn);
+		return result;
+	}
+	
+	public static Customer getCustomerById(int customerID) throws SQLException {
+		Customer result = null;
+		Connection conn = DBHelper.createConnection();
+
+		String selectString = "select * from customers where id=?";
+		PreparedStatement stmt = conn.prepareStatement(selectString);
+		stmt.setInt(1, customerID);
+		ResultSet rs = stmt.executeQuery();
+		if (rs.next()) {
+			int id = rs.getInt("ID");
+			String firstName = rs.getString("first_name");
+			String lastName = rs.getString("last_name");
+			String email = rs.getString("email");
+			String address = rs.getString("address");
+			String city = rs.getString("city");
+			String district = rs.getString("district");
+			String country = rs.getString("country");
+			result = new Customer(id, firstName, lastName, email, address, city, district, country);
 		}
 		DBHelper.closeConnection(conn);
 		return result;
@@ -67,13 +90,13 @@ public class CustomerDAO {
 	public static void updateCustomer(Customer c) throws SQLException {
 		Connection conn = DBHelper.createConnection();
 
-		String updateString = "UPDATE customers SET first_name = ?, last_name = ?, email = ?, adress = ?, city = ?, district = ?, country = ? WHERE ID = ?";
+		String updateString = "UPDATE customers SET first_name = ?, last_name = ?, email = ?, address = ?, city = ?, district = ?, country = ? WHERE ID = ?";
 
 		PreparedStatement stmt = conn.prepareStatement(updateString);
 		stmt.setString(1, c.getFirstName());
 		stmt.setString(2, c.getLastName());
 		stmt.setString(3, c.getEmail());
-		stmt.setString(4, c.getAdress());
+		stmt.setString(4, c.getAddress());
 		stmt.setString(5, c.getCity());
 		stmt.setString(6, c.getDistrict());
 		stmt.setString(7, c.getCountry());
@@ -84,9 +107,9 @@ public class CustomerDAO {
 		DBHelper.closeConnection(conn);
 	}
 	
-	public static void updateCustomer(String firstName, String lastName, String email, String adress, String city,
+	public static void updateCustomer(String firstName, String lastName, String email, String address, String city,
 			String district, String country) throws SQLException {
-		Customer c = new Customer(-1, firstName, lastName, email, adress, city, district, country);
+		Customer c = new Customer(-1, firstName, lastName, email, address, city, district, country);
 		CustomerDAO.updateCustomer(c);
 	}
 
@@ -103,9 +126,9 @@ public class CustomerDAO {
 		DBHelper.closeConnection(conn);
 	}
 	
-	public static void deleteCustomer(String firstName, String lastName, String email, String adress, String city,
+	public static void deleteCustomer(String firstName, String lastName, String email, String address, String city,
 			String district, String country) throws SQLException {
-		Customer c = new Customer(-1, firstName, lastName, email, adress, city, district, country);
+		Customer c = new Customer(-1, firstName, lastName, email, address, city, district, country);
 		CustomerDAO.deleteCustomer(c);
 	}
 	

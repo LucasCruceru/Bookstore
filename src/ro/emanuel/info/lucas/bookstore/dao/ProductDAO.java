@@ -38,7 +38,7 @@ public class ProductDAO {
 
 		Connection conn = DBHelper.createConnection();
 
-		String selectString = "SELECT * FROM products";
+		String selectString = "SELECT * FROM products 	";
 		Statement stmt = conn.createStatement();
 
 		ResultSet rs = stmt.executeQuery(selectString);
@@ -52,6 +52,27 @@ public class ProductDAO {
 
 			Product p = new Product(id, name, price, nrInStore, description);
 			result.add(p);
+		}
+		DBHelper.closeConnection(conn);
+		return result;
+	}
+	
+	public static Product getProductById(int productID) throws SQLException {
+		Product result = null;
+		Connection conn = DBHelper.createConnection();
+
+		String selectString = "select * from customers where id=?";
+		PreparedStatement stmt = conn.prepareStatement(selectString);
+		stmt.setInt(1, productID);
+		ResultSet rs = stmt.executeQuery();
+		if (rs.next()) {
+			int ID = rs.getInt("ID");
+			String name = rs.getString("name");
+			double price = rs.getDouble("price");
+			int nrInStore = rs.getInt("nrInStore");
+			String description = rs.getString("description");
+
+			result = new Product(ID, name, price, nrInStore, description);
 		}
 		DBHelper.closeConnection(conn);
 		return result;

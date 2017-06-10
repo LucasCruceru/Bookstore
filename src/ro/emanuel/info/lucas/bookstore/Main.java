@@ -1,27 +1,22 @@
 package ro.emanuel.info.lucas.bookstore;
 
-import java.sql.SQLException;
-
-import ro.emanuel.info.lucas.bookstore.dao.CustomerDAO;
-import ro.emanuel.info.lucas.bookstore.dao.OrderDAO;
-import ro.emanuel.info.lucas.bookstore.dao.OrderDetailsDAO;
-import ro.emanuel.info.lucas.bookstore.dao.ProductDAO;
-import ro.emanuel.info.lucas.bookstore.pojo.Customer;
-import ro.emanuel.info.lucas.bookstore.pojo.Order;
-import ro.emanuel.info.lucas.bookstore.pojo.OrderDetails;
-import ro.emanuel.info.lucas.bookstore.pojo.Product;
+//import java.sql.SQLException;
+//
+//import ro.emanuel.info.lucas.bookstore.dao.CustomerDAO;
+//import ro.emanuel.info.lucas.bookstore.dao.OrderDAO;
+//import ro.emanuel.info.lucas.bookstore.dao.OrderDetailsDAO;
+//import ro.emanuel.info.lucas.bookstore.dao.ProductDAO;
+//import ro.emanuel.info.lucas.bookstore.pojo.Customer;
+//import ro.emanuel.info.lucas.bookstore.pojo.Order;
+//import ro.emanuel.info.lucas.bookstore.pojo.OrderDetails;
+//import ro.emanuel.info.lucas.bookstore.pojo.Product;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		//testing orderDetails
-		//CRUDOrderDetails.insert(3, 1, 2);
-		//CRUDOrderDetails.update(2, 2, 1);
-		//CRUDOrderDetails.delete(3);
-		//CRUDOrderDetails.selectAll();
 		
-		try {
+	//	try {
 			//testing customers CRUD
 			
 			//Customer c1 = new Customer(-1, "Lucas", "Cruceru", "lucascruceru@gmail.com", "adresa 2", "Oradea", "Bihor", "Romania");
@@ -50,14 +45,14 @@ public class Main {
 			
 			
 			//testing orderdetails CRUD
-			OrderDetails od1 = new OrderDetails(1,2,1);
+			//OrderDetails od1 = new OrderDetails(1,2,1);
 			//OrderDetailsDAO.createOrderDetails(od1);
 			//OrderDetailsDAO.updateOrderDetails(od1);
 			//OrderDetailsDAO.getOrderDetails();
-			OrderDetailsDAO.deleteOrderDetails(od1);
-		} catch (SQLException e) {
-				e.printStackTrace();
-		}
+			//OrderDetailsDAO.deleteOrderDetails(od1);
+		//} catch (SQLException e) {
+		//		e.printStackTrace();
+		//}
 		
 	}
 

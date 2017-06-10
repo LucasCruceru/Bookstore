@@ -12,10 +12,11 @@ public class DBHelper {
 			prop.put("password", "lucas");
 			
 			try{
+				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/info_bookstore", prop);
 				System.out.println("Connection to DB created");
 				return conn;
-			}catch(SQLException e){
+			}catch(SQLException | ClassNotFoundException e){
 				e.printStackTrace();
 			}
 		return null;

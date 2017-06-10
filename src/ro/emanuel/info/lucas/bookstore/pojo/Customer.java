@@ -6,7 +6,7 @@ public class Customer {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String adress;
+	private String address;
 	private String city;
 	private String district;
 	private String country;
@@ -17,14 +17,14 @@ public class Customer {
 		super();
 	}
 	
-	public Customer(int iD, String firstName, String lastName, String email, String adress, String city,
+	public Customer(int iD, String firstName, String lastName, String email, String address, String city,
 			String district, String country) {
 		super();
 		ID = iD;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.adress = adress;
+		this.address = address;
 		this.city = city;
 		this.district = district;
 		this.country = country;
@@ -53,11 +53,11 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getCity() {
 		return city;
