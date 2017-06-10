@@ -61,7 +61,7 @@ public class ProductDAO {
 		Product result = null;
 		Connection conn = DBHelper.createConnection();
 
-		String selectString = "select * from customers where id=?";
+		String selectString = "SELECT * FROM products WHERE ID=?";
 		PreparedStatement stmt = conn.prepareStatement(selectString);
 		stmt.setInt(1, productID);
 		ResultSet rs = stmt.executeQuery();
@@ -69,7 +69,7 @@ public class ProductDAO {
 			int ID = rs.getInt("ID");
 			String name = rs.getString("name");
 			double price = rs.getDouble("price");
-			int nrInStore = rs.getInt("nrInStore");
+			int nrInStore = rs.getInt("nr_in_store");
 			String description = rs.getString("description");
 
 			result = new Product(ID, name, price, nrInStore, description);

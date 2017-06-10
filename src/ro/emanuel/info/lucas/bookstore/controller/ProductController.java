@@ -96,7 +96,7 @@ public class ProductController {
 				return new ModelAndView("/product/add", "model", model);
 			}
 
-			@RequestMapping(value = "/product/addproduct", method = RequestMethod.POST)
+			@RequestMapping(value = "/product/addProduct", method = RequestMethod.POST)
 			public ModelAndView addproduct(@ModelAttribute("productForm") Product product, ModelMap model, BindingResult result) {
 
 				try {

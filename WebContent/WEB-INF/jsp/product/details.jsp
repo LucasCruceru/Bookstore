@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -8,33 +7,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Product</title>
+<title>Details</title>
 </head>
 <body>
-<form:form action="${pageContext.request.contextPath}/product/addProduct" method="post" commandName="productForm">
-       
 <table>
 <tr>
+	<td>ID</td>
+	<td><c:out value="${model.product.ID}"/></td>
+</tr>
+<tr>
 	<td>Name</td>
-	<td><form:input path="name" /></td>
+	<td><c:out value="${model.product.name}"/></td>
 </tr>
 <tr>
 	<td>Price</td>
-	<td><form:input path="price" /></td>
+	<td><c:out value="${model.product.price}"/></td>
 </tr>
 <tr>
-	<td>Nr in Store</td>
-	<td><form:input path="nrInStore" /></td>
+	<td>Number of products available</td>
+	<td><c:out value="${model.product.nrInStore}"/></td>
 </tr>
 <tr>
 	<td>Description</td>
-	<td><form:input path="description" /></td>
+	<td><c:out value="${model.product.description}"/></td>
 </tr>
-<tr>
-<td><a href="<c:url value="/product.htm"/>">Back to list</a></td>
-<td><input type=submit value="Save"/></td>
-</tr>
+
 </table>
-</form:form>
+<a href="<c:url value="/product.htm"/>">Back to list</a>
 </body>
 </html>

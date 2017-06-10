@@ -6,19 +6,19 @@ public class Product {
 	private String name;
 	private double price;
 	private int nrInStore;
-	private String Description;
+	private String description;
 	
 	public Product() {
 		super();
 	}
 
-	public Product(int iD, String name, double price, int nrInStore, String description) {
+	public Product(int ID, String name, double price, int nrInStore, String description) {
 		super();
-		ID = iD;
+		this.ID = ID;
 		this.name = name;
 		this.price = price;
 		this.nrInStore = nrInStore;
-		Description = description;
+		this.description = description;
 	}
 	
 	public int getID() {
@@ -46,10 +46,10 @@ public class Product {
 		this.nrInStore = nrInStore;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	
 	

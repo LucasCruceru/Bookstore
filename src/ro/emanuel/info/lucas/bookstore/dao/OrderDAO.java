@@ -54,6 +54,25 @@ public class OrderDAO {
 		DBHelper.closeConnection(conn);
 		return result;
 	}
+	
+	public static Order getOrderById(int orderID) throws SQLException {
+		Order result = null;
+		Connection conn = DBHelper.createConnection();
+
+		String selectString = "SELECT * FROM orders WHERE ID=?";
+		PreparedStatement stmt = conn.prepareStatement(selectString);
+		stmt.setInt(1, orderID);
+		ResultSet rs = stmt.executeQuery();
+		if (rs.next()) {
+			int id = rs.getInt("ID");
+			String dateOrder = rs.getString("date_order");
+			double totalPrice = rs.getDouble("total_price");
+			int customerId = rs.getInt("customer_ID");
+			result = new Order(id, dateOrder, totalPrice, customerId);
+		}
+		DBHelper.closeConnection(conn);
+		return result;
+	}
 
 	public static void updateOrder(Order o) throws SQLException {
 		Connection conn = DBHelper.createConnection();

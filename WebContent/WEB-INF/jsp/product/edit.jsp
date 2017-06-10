@@ -11,7 +11,7 @@
 <title>Edit</title>
 </head>
 <body>
-<form:form action="${pageContext.request.contextPath}/customer/save" method="post" commandName="customerForm">
+<form:form action="${pageContext.request.contextPath}/product/save" method="post" commandName="productForm">
        
 <table>
 <tr>
@@ -19,36 +19,24 @@
 	<td><form:input path="ID" readonly="true"/></td>
 </tr>
 <tr>
-	<td>First Name</td>
-	<td><form:input path="firstName" /></td>
+	<td>Name</td>
+	<td><form:input path="name" /></td>
 </tr>
 <tr>
-	<td>Last Name</td>
-	<td><form:input path="lastName" /></td>
+	<td>Price</td>
+	<td><form:input path="price" /></td>
 </tr>
 <tr>
-	<td>Email</td>
-	<td><form:input path="email" /></td>
+	<td>Nr in Store</td>
+	<td><form:input path="nrInStore" /></td>
 </tr>
 <tr>
-	<td>Address</td>
-	<td><form:input path="address" /></td>
-</tr>
-<tr>
-	<td>City</td>
-	<td><form:input path="city" /></td>
-</tr>
-<tr>
-	<td>District</td>
-	<td><form:input path="district" /></td>
-</tr>
-<tr>
-	<td>Country</td>
-	<td><form:input path="country" /></td>
+	<td>Description</td>
+	<td><form:input path="description" /></td>
 </tr>
 
 <tr>
-<td><a href="<c:url value="/customer.htm"/>">Back to list</a></td>
+<td><a href="<c:url value="/product.htm"/>">Back to list</a></td>
 <td><input type=submit value="Save"/></td>
 </tr>
 </table>

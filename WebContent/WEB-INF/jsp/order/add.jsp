@@ -8,30 +8,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Product</title>
+<title>Add Order</title>
 </head>
 <body>
-<form:form action="${pageContext.request.contextPath}/product/addProduct" method="post" commandName="productForm">
+<form:form action="${pageContext.request.contextPath}/order/addOrder" method="post" commandName="orderForm">
        
 <table>
 <tr>
-	<td>Name</td>
-	<td><form:input path="name" /></td>
+	<td>Date Ordered</td>
+	<td><form:input path="dateOrder" /></td>
 </tr>
 <tr>
-	<td>Price</td>
-	<td><form:input path="price" /></td>
+	<td>Total Price</td>
+	<td><form:input path="totalPrice" /></td>
 </tr>
 <tr>
-	<td>Nr in Store</td>
-	<td><form:input path="nrInStore" /></td>
+	<td>CustomerID</td>
+	<td><form:input path="customerID" /></td>
 </tr>
+
 <tr>
-	<td>Description</td>
-	<td><form:input path="description" /></td>
-</tr>
-<tr>
-<td><a href="<c:url value="/product.htm"/>">Back to list</a></td>
+<td><a href="<c:url value="/order.htm"/>">Back to list</a></td>
 <td><input type=submit value="Save"/></td>
 </tr>
 </table>
