@@ -53,6 +53,25 @@ public class OrderDetailsDAO {
 		DBHelper.closeConnection(conn);
 		return result;
 	}
+	
+	public static OrderDetails getOrderDetailsById(int orderDetailsID) throws SQLException {
+		OrderDetails result = null;
+		Connection conn = DBHelper.createConnection();
+
+		String selectString = "SELECT * FROM order_details WHERE ID=?";
+		PreparedStatement stmt = conn.prepareStatement(selectString);
+		stmt.setInt(1, orderDetailsID);
+		ResultSet rs = stmt.executeQuery();
+		if (rs.next()) {
+			int ID = rs.getInt("ID");
+			int orderID = rs.getInt("order_ID");
+			int productID = rs.getInt("product_ID");
+	
+			result = new OrderDetails(ID, orderID, productID);
+		}
+		DBHelper.closeConnection(conn);
+		return result;
+	}
 
 	public static void updateOrderDetails(OrderDetails od) throws SQLException {
 		Connection conn = DBHelper.createConnection();
